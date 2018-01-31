@@ -1,0 +1,73 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <!--导航栏的样式-->
+    <style name="basetoolbarStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_45</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="MY.Theme" parent="AppTheme"/>
+    <!-- Widget -->
+
+    <style name="MY.Theme.Widget"/>
+    <!--RecyclerView样式-->
+    <style name="MY.Theme.Widget.RecyclerView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:scrollbars">none</item>
+    </style>
+
+    <!--普通dialog-->
+    <style name="CustomProgressDialog" parent="@style/CustomDialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+
+    <!--加载框的Dialog-->
+    <style name="CustomDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item><!-- 无标题 -->
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@color/white</item><!-- 自己想要的背景 -->
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+    </style>
+    <!-- Widget - Divider 直线 -->
+    <style name="MY.Theme.Widget.Divider">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:background">@color/common_divider_narrow</item>
+    </style>
+
+    <style name="MY.Theme.Widget.Divider.Line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="MY.Theme.Widget.Divider.Line.Vertical">
+        <item name="android:layout_height">@dimen/divider_size</item>
+    </style>
+
+    <style name="MY.Theme.Widget.Divider.Line.Horizontal">
+        <item name="android:layout_width">@dimen/divider_size</item>
+    </style>
+    <!--TextView样式-->
+    <style name="MY.Theme.Widget.Text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/font_normal2</item>
+        <item name="android:textColor">@color/common_h</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+</resources>

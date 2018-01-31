@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LetToolBar">
+        <attr name="title" format="string"/>
+        <attr name="titleColors" format="color"/>
+        <attr name="leftButtonIcon" format="reference"/>
+        <attr name="rightButtonIcon" format="reference"/>
+        <attr name="rightButtonText" format="string"/>
+        <attr name="rightButtonIcon1" format="reference"/>
+        <attr name="rightButtonText1" format="string"/>
+    </declare-styleable>
+
+
+    !--自定星级控件-->
+    <declare-styleable name="StarView">
+        <attr name="mImageWidth" format="dimension"/>
+        <attr name="mImageHeight" format="dimension" />
+        <attr name="mDefaultImageId" format="reference" />
+        <attr name="mClickImageId" format="reference" />
+        <attr name="mMargin" format="dimension" />
+        <attr name="mStarNum" format="integer" />
+        <attr name="mStarChoose" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="TimeView">
+        <attr name="tvtitles" format="string"/>
+        <attr name="tvtitleColors" format="color"/>
+        <attr name="tvtitleSizes" format="dimension"/>
+    </declare-styleable>
+</resources>

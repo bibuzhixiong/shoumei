@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#555555</color>
+    <color name="colorPrimaryDark">#555555</color>
+    <color name="colorAccent">#555555</color>
+
+    <!-- -->
+    <color name="common_color">#555555</color>
+    <color name="white">#ffffffff</color>
+    <color name="black">#ff000000</color>
+    <color name="black1">#413f3f</color>
+    <color name="red">#FF0000</color>
+    <color name="red1">#fb0d01</color>
+    <color name="red2">#ee5b54</color>
+    <color name="orange">#DE6014</color>
+    <color name="orange1">#da5301</color>
+    <color name="yellow">#dec314</color>
+    <color name="yellow1">#f08a26</color>
+    <color name="yellow3">#e3f026</color>
+    <color name="yellow2">#f1f5d647</color>
+    <color name="yellow4">#FF9900</color>
+    <color name="gray_color">#b8b8b8</color>
+
+    <color name="gray">#b8b8b8</color>
+    <color name="gray1">#d6d4d4</color>
+    <color name="green">#47ea9e</color>
+    <color name="green1">#258904</color>
+    <color name="green2">#43c119</color>
+    <color name="blue">#1ea1f3</color>
+    <color name="blue1">#4ed3fc</color>
+    <color name="transparent">#00000000</color>
+    <!--通用背景色-->
+    <color name="common_bg">#fff7f7f7</color>
+    <!--通用一级标题的颜色-->
+    <color name="common_h1">#212121</color>
+    <!--通用二级标题的颜色-->
+    <color name="common_h2">#727272</color>
+    <!--通用三级标题的颜色-->
+    <color name="common_h3">#B2B2B2</color>
+    <color name="common_h4"> #F5F3F3</color>
+
+    <!--通用textvew的颜色-->
+    <color name="common_h">#333333</color>
+    <!--通用分割线细-->
+    <color name="common_divider_narrow">#eceaea</color>
+
+    <!--搜索页面-->
+    <color name="home_search_color">#333333</color>
+    <!--选择纱页面-->
+    <color name="red3">#ca1013</color>
+
+
+    <!-- 画面背景色 -->
+    <drawable name="layout_backgroud">#000000</drawable>
+
+    <!-- 分割线背景色 -->
+    <drawable name="line_background">#161823</drawable>
+
+    <!-- 控件按下时显示的颜色 -->
+    <color name="list_backgroud_color">#2fb3cb</color>
+    <color name="title_color">#0f8ec5</color>
+    <color name="content_color">#737373</color>
+
+    <!--浅色-->
+    <color name="mSwipeLayout">#cccccc</color>
+    <color name="txt_color_tint">#a1a1a1</color>
+    <color name="txt_color_tint_">#939393</color>
+    <color name="txt_color_deep">#535353</color>
+    <color name="view_color_tint">#f8f8f8</color>
+    <color name="background_color">#f7f7f7</color>
+    <color name="txt_click_color">#6bc564</color>
+    <color name="class_background">#3aaaaaaa</color>
+
+    <color name="list_item_focus">#0a000000</color>
+    <color name="white_alpha_percent_45">#73ffffff</color>
+    <color name="text_gray">#7b403b37</color>
+    <color name="base_red">#fffb6655</color>
+    <color name="default_line_color">#e6e6e6</color>
+
+
+    <color name="color_bule">#2F9BFF</color>
+    <color name="color_bule2">#40B3F0</color>
+    <color name="color_bule3">#99ddff</color>
+</resources>
