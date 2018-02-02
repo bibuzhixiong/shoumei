@@ -55,8 +55,9 @@ public class SplashActivity extends BaseActivity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 //当监听到动画结束时，开始跳转到MainActivity中去
-                if(SharedPreferencesUtil.getValue(SplashActivity.this,"USERID","")!=null){
-                    if(SharedPreferencesUtil.getValue(SplashActivity.this,"HEIGHT","")!=null){
+                String s=SharedPreferencesUtil.getValue(SplashActivity.this,"USERID","")+"";
+                if(!s.equals("")){
+                    if(!(SharedPreferencesUtil.getValue(SplashActivity.this,"HEIGHT","").equals(""))){
                         startActivity(MainActivity.class);
                     }else{
                         startActivity(PerfectInformationActivity.class);

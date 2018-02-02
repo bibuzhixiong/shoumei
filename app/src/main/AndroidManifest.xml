@@ -58,9 +58,39 @@
         <activity android:name="com.wanhan.shouyu.ui.ConnectActivity">
 
         </activity>
+        <!--完善资料-->
         <activity android:name="com.wanhan.shouyu.ui.login.activity.PerfectInformationActivity">
 
         </activity>
+        <!--设置-->
+        <activity android:name="com.wanhan.shouyu.ui.me.activity.SettingActivity">
+
+        </activity>
+        <!--意见反馈-->
+        <activity android:name="com.wanhan.shouyu.ui.me.activity.SuggestionsActivity">
+
+        </activity>
+        <!--修改密码-->
+        <activity android:name="com.wanhan.shouyu.ui.me.activity.UpdatePasswordActivity">
+
+        </activity>
+        <!--邀请好友-->
+        <activity android:name="com.wanhan.shouyu.ui.me.activity.InviteFriendsActivity">
+
+        </activity>
+        <!--测量结果-->
+        <activity android:name="com.wanhan.shouyu.ui.tool.activity.MeasureResultActivity">
+
+        </activity>
+        <!--健康报告-->
+        <activity android:name="com.wanhan.shouyu.ui.tool.activity.HealthReportActivity">
+
+        </activity>
+        <!--编辑个人资料-->
+        <activity android:name="com.wanhan.shouyu.ui.me.activity.EditPersonalActivity">
+
+        </activity>
+
     </application>
 
 </manifest>

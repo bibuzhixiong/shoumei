@@ -1,7 +1,9 @@
 package com.wanhan.shouyu.ui.login.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -92,6 +94,7 @@ public class PerfectInformationActivity extends BaseActivity<PerfectInformationP
         super.onClick(v);
         switch (v.getId()){
             case R.id.ll_addres:
+
                 TimePickerView timePickerView=new TimePickerView(PerfectInformationActivity.this, TimePickerView.Type.YEAR_MONTH_DAY);
                 Calendar calendar = Calendar.getInstance();
                 timePickerView.setRange(1900,calendar.get(Calendar.YEAR)-10);
@@ -152,7 +155,7 @@ public class PerfectInformationActivity extends BaseActivity<PerfectInformationP
                     ToastUtil.showShortToast("请选择你的生日");
                     return;
                 }
-                String nickname=tvBirthday.getText().toString().trim();
+                String nickname=etNickname.getText().toString().trim();
                 String manOrWoman="2";
                 if(iswoman==false){
                     manOrWoman="1";
@@ -167,7 +170,6 @@ public class PerfectInformationActivity extends BaseActivity<PerfectInformationP
                 break;
         }
 
-
     }
 
     @Override
@@ -179,7 +181,7 @@ public class PerfectInformationActivity extends BaseActivity<PerfectInformationP
         SharedPreferencesUtil.putValue(PerfectInformationActivity.this,"BIRTHDAY",tvBirthday.getText().toString().trim());
         SharedPreferencesUtil.putValue(PerfectInformationActivity.this,"SEX",manOrWoman);
         SharedPreferencesUtil.putValue(PerfectInformationActivity.this,"HEIGHT",etHeight.getText().toString().trim());
-        SharedPreferencesUtil.putValue(PerfectInformationActivity.this,"niceNameniceName",etNickname.getText().toString().trim());
+        SharedPreferencesUtil.putValue(PerfectInformationActivity.this,"NICKNAME",etNickname.getText().toString().trim());
         startActivity(MainActivity.class);
     }
 

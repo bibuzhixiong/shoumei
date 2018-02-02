@@ -1,46 +1,39 @@
 package com.wanhan.shouyu.ui.tool.fragment;
 
-import android.bluetooth.BluetoothAdapter;
-import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.os.Handler;
-import android.util.Log;
+import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.DecelerateInterpolator;
-import android.view.animation.ScaleAnimation;
-import android.widget.TextView;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
-import com.kitnew.ble.QNApiManager;
-import com.kitnew.ble.QNBleApi;
-import com.kitnew.ble.QNBleCallback;
-import com.kitnew.ble.QNBleDevice;
-import com.kitnew.ble.QNData;
-import com.kitnew.ble.QNUser;
 import com.wanhan.shouyu.R;
 import com.wanhan.shouyu.base.BaseFragment;
-
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import com.wanhan.shouyu.ui.tool.activity.MeasureResultActivity;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import qiu.niorgai.StatusBarCompat;
 
 /**
  * Created by Administrator on 2018/1/27.
  */
 
-public class ToolFragment extends BaseFragment  {
-    @Bind(R.id.heartbeatViews)
-    TextView tv_shangcheng;
+public class ToolFragment extends BaseFragment {
 
+
+    @Bind(R.id.rl1)
+    RelativeLayout rl1;
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (!hidden) {
+//            StatusBarCompat.translucentStatusBar(getActivity(), true);
+//            StatusBarCompat.setStatusBarColor(activity, Color.WHITE,125);
+
+        }
+    }
 
     @Override
     protected int getLayoutId() {
@@ -49,9 +42,17 @@ public class ToolFragment extends BaseFragment  {
 
     @Override
     protected void initView() {
-
+        StatusBarCompat.translucentStatusBar(getActivity(), true);
 
     }
-
-
+    @OnClick({R.id.rl1})
+    @Override
+    public void onClick(View v) {
+        super.onClick(v);
+        switch (v.getId()){
+            case R.id.rl1:
+                startActivity(MeasureResultActivity.class);
+                break;
+        }
+    }
 }

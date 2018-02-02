@@ -230,7 +230,7 @@ public class BaseToolbar extends Toolbar {
     //给左侧按钮设置图片，也可以在布局文件中直接引入
     private void setLeftButtonIcon(Drawable icon) {
         if (mLeftButton != null) {
-            icon.setBounds(0, 0, DensityUtil.dip2px(25) , DensityUtil.dip2px(25));
+            icon.setBounds(0, 0, DensityUtil.dip2px(22) , DensityUtil.dip2px(22));
             mLeftButton.setCompoundDrawables(null,null,icon,null);
         }
         mLeftButton.setVisibility(View.VISIBLE);

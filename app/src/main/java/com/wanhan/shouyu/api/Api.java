@@ -85,4 +85,8 @@ public class Api {
     public Observable<TermsBean> getTerms(){return service.getTerms();}
     //修改个人资料
     public Observable<CodeBean> updateUser(Map<String,String> map){return service.updateUser(map);}
+    //意见反馈
+    public Observable<CodeBean> suggestive(Map<String,String> map){return service.suggestive(map);}
+    //修改密码
+    public Observable<CodeBean> updatePassword(Map<String,String> map){return service.updatePassword(map);}
 }

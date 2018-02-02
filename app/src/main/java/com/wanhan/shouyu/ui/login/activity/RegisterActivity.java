@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.wanhan.shouyu.R;
@@ -47,6 +48,8 @@ public class RegisterActivity extends BaseActivity<RegisterPresenter> implements
     TextView tv_shouyu_terms;
     @Bind(R.id.cb_terms)
     CheckBox cb_terms;
+    @Bind(R.id.img_back)
+    ImageView img_back;
 
     private String verPhone="";
     private String verCode="";
@@ -65,7 +68,7 @@ public class RegisterActivity extends BaseActivity<RegisterPresenter> implements
     protected void initView() {
 
     }
-    @OnClick({R.id.tv_getcode,R.id.bt_register,R.id.tv_shouyu_terms})
+    @OnClick({R.id.tv_getcode,R.id.bt_register,R.id.tv_shouyu_terms,R.id.img_back})
     @Override
     public void onClick(View v) {
         super.onClick(v);
@@ -139,6 +142,10 @@ public class RegisterActivity extends BaseActivity<RegisterPresenter> implements
                 map1.put("phoneVerification",code);
                 map1.put("notPhoneCode",code);
                 mPresenter.register(MapUtil.getMap(map1));
+                break;
+            case R.id.img_back:
+                startActivity(WelcomeActivity.class);
+                finish_Activity(RegisterActivity.this);
                 break;
         }
     }

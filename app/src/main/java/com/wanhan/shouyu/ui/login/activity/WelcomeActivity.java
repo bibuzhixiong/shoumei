@@ -2,6 +2,7 @@ package com.wanhan.shouyu.ui.login.activity;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.Resource;
 import com.wanhan.shouyu.R;
+import com.wanhan.shouyu.base.ActivityManager;
 import com.wanhan.shouyu.base.BaseActivity;
 import com.wanhan.shouyu.utils.RescourseUtil;
 import com.youth.banner.Banner;
@@ -74,5 +76,15 @@ public class WelcomeActivity extends BaseActivity {
                 finish_Activity(WelcomeActivity.this);
                 break;
         }
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+            ActivityManager.getActivityMar().exitApp(WelcomeActivity.this);
+            return false;
+        }else {
+            return super.onKeyDown(keyCode, event);
+        }
+
     }
 }

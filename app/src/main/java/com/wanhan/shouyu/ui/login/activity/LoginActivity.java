@@ -74,6 +74,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                 break;
             case R.id.img_back:
                     startActivity(WelcomeActivity.class);
+                    finish_Activity(LoginActivity.this);
                 break;
             case R.id.login_btn:
                 String phone=accountLoginEt.getText().toString().trim();
@@ -112,6 +113,11 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     public void loginSuccess(UserBean info) {
+        SharedPreferencesUtil.putValue(LoginActivity.this,"USERID",info.getUserId());
+        SharedPreferencesUtil.putValue(LoginActivity.this,"BIRTHDAY",info.getBirthday());
+        SharedPreferencesUtil.putValue(LoginActivity.this,"SEX",info.getSex());
+        SharedPreferencesUtil.putValue(LoginActivity.this,"HEIGHT",info.getHeight());
+        SharedPreferencesUtil.putValue(LoginActivity.this,"NICKNAME",info.getNiceName());
         SharedPreferencesUtil.putValue(LoginActivity.this,"PHONE",accountLoginEt.getText().toString().trim());
         ToastUtil.showShortToast("登录成功");
         startActivity(MainActivity.class);

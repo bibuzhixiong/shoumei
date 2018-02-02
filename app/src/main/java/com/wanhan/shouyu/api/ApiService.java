@@ -40,5 +40,14 @@ public interface ApiService {
     @GET("user!updateUser.action")
     Observable<CodeBean> updateUser(@QueryMap Map<String,String> map);
 
+    //意见反馈
+    @GET("feedback!addFeedback.action")
+    Observable<CodeBean> suggestive(@QueryMap Map<String,String> map);
+
+    //修改密码
+    @GET("user!updateUser.action")
+    Observable<CodeBean> updatePassword(@QueryMap Map<String,String> map);
+
+
 
 }
