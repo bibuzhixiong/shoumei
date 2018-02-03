@@ -84,7 +84,7 @@ public class UpdatePasswordActivity extends BaseActivity<UpdatePasswordPresenter
                     ToastUtil.showShortToast("密码至少6位数");
                     return;
                 }
-                if(password.equals(password1)){
+                if(!password.equals(password1)){
                     ToastUtil.showShortToast("密码不一致");
                     return;
                 }
