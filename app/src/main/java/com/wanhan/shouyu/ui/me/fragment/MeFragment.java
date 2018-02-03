@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 
 import com.wanhan.shouyu.R;
 import com.wanhan.shouyu.base.BaseFragment;
+import com.wanhan.shouyu.ui.me.activity.EditPersonalActivity;
 import com.wanhan.shouyu.ui.me.activity.InviteFriendsActivity;
 import com.wanhan.shouyu.ui.me.activity.SettingActivity;
 import com.wanhan.shouyu.ui.me.activity.SuggestionsActivity;
@@ -59,7 +60,7 @@ public class MeFragment extends BaseFragment {
     }
 
 
-    @OnClick({R.id.ll_collections,R.id.ll_message,R.id.ll_secret,R.id.ll_setting,R.id.ll_suggestion,R.id.ll_invite_friends,R.id.ll_help})
+    @OnClick({R.id.ll_collections,R.id.ll_message,R.id.ll_secret,R.id.ll_setting,R.id.ll_suggestion,R.id.ll_invite_friends,R.id.ll_help,R.id.ll_edit_personal})
     @Override
     public void onClick(View v) {
         super.onClick(v);
@@ -72,6 +73,9 @@ public class MeFragment extends BaseFragment {
                 break;
             case R.id.ll_invite_friends:
                 startActivity(InviteFriendsActivity.class);
+                break;
+            case R.id.ll_edit_personal:
+                startActivity(EditPersonalActivity.class);
                 break;
         }
     }

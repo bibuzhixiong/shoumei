@@ -113,6 +113,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     public void loginSuccess(UserBean info) {
+
         SharedPreferencesUtil.putValue(LoginActivity.this,"USERID",info.getUserId());
         SharedPreferencesUtil.putValue(LoginActivity.this,"BIRTHDAY",info.getBirthday());
         SharedPreferencesUtil.putValue(LoginActivity.this,"SEX",info.getSex());
