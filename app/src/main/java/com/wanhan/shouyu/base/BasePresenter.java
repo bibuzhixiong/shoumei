@@ -43,6 +43,7 @@ public abstract class BasePresenter<V> {
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe(subscriber));
     }
+
     public void onDestroy(){
         this.mView=null;
         //取消订阅和移除集合

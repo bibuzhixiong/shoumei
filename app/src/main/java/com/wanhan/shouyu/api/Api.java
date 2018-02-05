@@ -1,6 +1,7 @@
 package com.wanhan.shouyu.api;
 
 
+import com.google.gson.JsonObject;
 import com.wanhan.shouyu.bean.json.CodeBean;
 import com.wanhan.shouyu.bean.json.IdentifyCodeBean;
 import com.wanhan.shouyu.bean.json.RegisterBean;
@@ -14,10 +15,14 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Interceptor;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -28,7 +33,7 @@ import rx.Observable;
  */
 
 public class Api {
-    public final static String API_BASE_URL = " http://120.77.44.166:80/ShuaiMei/";
+    public final static String API_BASE_URL = "http://120.77.44.166:80/ShuaiMei/";
     public static Api instance;
     private ApiService service;
     //添加请求头
@@ -89,4 +94,12 @@ public class Api {
     public Observable<CodeBean> suggestive(Map<String,String> map){return service.suggestive(map);}
     //修改密码
     public Observable<CodeBean> updatePassword(Map<String,String> map){return service.updatePassword(map);}
+    //修改用户头像
+    public Observable<ResponseBody> changeUserHead(MultipartBody.Part body){
+        return service.changeUserHead(body);
+    }
+    //推荐信息
+    public Observable<ResponseBody> recommendInformation(Map<String,String> map){
+        return service.recommendInformation(map);}
+
 }

@@ -1,5 +1,6 @@
 package com.wanhan.shouyu.api;
 
+import com.google.gson.JsonObject;
 import com.wanhan.shouyu.bean.json.CodeBean;
 import com.wanhan.shouyu.bean.json.IdentifyCodeBean;
 import com.wanhan.shouyu.bean.json.RegisterBean;
@@ -10,7 +11,15 @@ import com.wanhan.shouyu.ui.login.activity.TermsActivity;
 import java.util.List;
 import java.util.Map;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
+import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.QueryMap;
 import rx.Observable;
 
@@ -48,6 +57,13 @@ public interface ApiService {
     @GET("user!updateUser.action")
     Observable<CodeBean> updatePassword(@QueryMap Map<String,String> map);
 
+    //修改用户头像
+    @Multipart
+    @POST("servlet/UploadFileServlet")
+    Observable<ResponseBody> changeUserHead(@Part MultipartBody.Part file);
 
+        //推荐信息
+    @GET("information!findInformation.action")
+    Observable<ResponseBody> recommendInformation(@QueryMap Map<String,String> map);
 
 }

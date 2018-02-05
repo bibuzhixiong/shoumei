@@ -20,16 +20,28 @@ import android.widget.TextView;
 import com.airsaid.pickerviewlibrary.TimePickerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
+import com.bumptech.glide.request.RequestOptions;
 import com.lwkandroid.imagepicker.ImagePicker;
 import com.lwkandroid.imagepicker.data.ImageBean;
 import com.lwkandroid.imagepicker.data.ImagePickType;
 import com.lwkandroid.imagepicker.utils.GlideImagePickerDisplayer;
 import com.wanhan.shouyu.R;
+import com.wanhan.shouyu.api.Api;
 import com.wanhan.shouyu.base.BaseActivity;
 import com.wanhan.shouyu.base.BaseToolbar;
 
+import com.wanhan.shouyu.base.rx.RxBus;
+import com.wanhan.shouyu.bean.json.CodeBean;
+import com.wanhan.shouyu.event.NickNameEvent;
+import com.wanhan.shouyu.event.UserHeadEvent;
 import com.wanhan.shouyu.ui.ClipHeaderActivity;
+import com.wanhan.shouyu.ui.login.activity.PerfectInformationActivity;
+import com.wanhan.shouyu.ui.me.contract.EditPersonalContract;
+import com.wanhan.shouyu.ui.me.presenter.EditPersonalPresenter;
 import com.wanhan.shouyu.utils.ImageUtils;
+import com.wanhan.shouyu.utils.MapUtil;
 import com.wanhan.shouyu.utils.SharedPreferencesUtil;
 import com.wanhan.shouyu.utils.ToastUtil;
 
@@ -38,17 +50,22 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 
 /**
  * Created by Administrator on 2018/2/2.
  */
 
-public class EditPersonalActivity extends BaseActivity {
+public class EditPersonalActivity extends BaseActivity<EditPersonalPresenter> implements EditPersonalContract.View {
     @Bind(R.id.toolbar)
     BaseToolbar toolbar;
     @Bind(R.id.img_head)
@@ -84,6 +101,8 @@ public class EditPersonalActivity extends BaseActivity {
     private static final int RESULT_PICK = 101;
     private static final int CROP_PHOTO = 102;
     private final int REQUEST_CODE = 111;
+
+    private String headPath="";
     @Override
     protected int getLayoutId() {
         return R.layout.activity_edit_personal;
@@ -103,11 +122,15 @@ public class EditPersonalActivity extends BaseActivity {
     protected void initView() {
         cachePath = getExternalCacheDir().getAbsolutePath();
        String id= SharedPreferencesUtil.getValue(EditPersonalActivity.this,"USERID","")+"";
-        String nickname= SharedPreferencesUtil.getValue(EditPersonalActivity.this,"USERID","")+"";
+        String nickname= SharedPreferencesUtil.getValue(EditPersonalActivity.this,"NICKNAME","")+"";
         String phone= SharedPreferencesUtil.getValue(EditPersonalActivity.this,"PHONE","")+"";
         String height= SharedPreferencesUtil.getValue(EditPersonalActivity.this,"HEIGHT","")+"";
         String birthday= SharedPreferencesUtil.getValue(EditPersonalActivity.this,"BIRTHDAY","")+"";
         String sex= SharedPreferencesUtil.getValue(EditPersonalActivity.this,"SEX","")+"";
+        String headpath= SharedPreferencesUtil.getValue(EditPersonalActivity.this,"HEADPATH","")+"";
+        if(!headpath.equals("")){
+            Glide.with(EditPersonalActivity.this).load(headpath).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(imgHead);
+        }
         tvPhone.setText(phone);
         tvId.setText(id);
         etNickname.setText(nickname);
@@ -122,6 +145,34 @@ public class EditPersonalActivity extends BaseActivity {
     public void onClick(View v) {
         super.onClick(v);
         switch (v.getId()){
+            case R.id.tv_save:
+               String height= etHeight.getText().toString().trim();
+                if(!height.equals("")){
+                    ToastUtil.showShortToast("请填写您的身高");
+                }
+              String nickname=  etNickname.getText().toString().trim();
+               String birthday= tvBirthday.getText().toString().trim();
+                Map<String,String> map=new HashMap<>();
+                map.put("height",height);
+                map.put("nickName",nickname);
+                map.put("birthday",birthday);
+                if(   radioGroupID.getCheckedRadioButtonId()==maleGroupID.getId()){
+                    map.put("sex","1");
+                }else{
+                    map.put("sex","2");
+                }
+
+
+                if(!headPath.equals("")){
+                    map.put("icon",headPath);
+
+                }
+                mPresenter.updateUser(MapUtil.getMap(map));
+                Log.e("HHH",radioGroupID.getCheckedRadioButtonId()+"--"+maleGroupID.getId());
+                break;
+            case R.id.tv_cancle:
+                finish_Activity(EditPersonalActivity.this);
+                break;
             case R.id.ll_birthday:
                 TimePickerView timePickerView=new TimePickerView(EditPersonalActivity.this, TimePickerView.Type.YEAR_MONTH_DAY);
                 Calendar calendar = Calendar.getInstance();
@@ -173,9 +224,48 @@ public class EditPersonalActivity extends BaseActivity {
             Log.e("TTT",resultList.toString());
             //本地文件
             File file = new File(resultList.get(0).getImagePath());
-            Glide.with(EditPersonalActivity.this).load(file).into(imgHead);
+//            Glide.with(EditPersonalActivity.this).load(file) .transition(DrawableTransitionOptions.withCrossFade()).into(imgHead);
+            Glide.with(this).load(file).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(imgHead);
+
+            RequestBody requestFile =
+                    RequestBody.create(MediaType.parse("multipart/form-data"), file);
+            MultipartBody.Part body =
+                    MultipartBody.Part.createFormData("Filedata", file.getName(), requestFile);
+            mPresenter.uploadHead(body);
+//            Glide.with(this).load(file).bitmapTransform(new CropCircleTransformation(this)).crossFade(1000).into(imgHead);
         }
     }
 
 
+    @Override
+    public void uploadHeadSuccess(String info) {
+        headPath= Api.API_BASE_URL+info;
+    }
+
+    @Override
+    public void updateUserSuccess(CodeBean info) {
+        String manOrWoman="";
+        if(   radioGroupID.getCheckedRadioButtonId()==maleGroupID.getId()){
+            manOrWoman="男";
+        }else{
+            manOrWoman="女";
+        }
+
+        if(!headPath.equals("")){
+            SharedPreferencesUtil.putValue(EditPersonalActivity.this,"HEADPATH",headPath);
+            RxBus.$().postEvent(new UserHeadEvent(headPath));
+        }
+        RxBus.$().postEvent(new NickNameEvent(etNickname.getText().toString().trim()));
+        SharedPreferencesUtil.putValue(EditPersonalActivity.this,"BIRTHDAY",tvBirthday.getText().toString().trim());
+        SharedPreferencesUtil.putValue(EditPersonalActivity.this,"SEX",manOrWoman);
+        SharedPreferencesUtil.putValue(EditPersonalActivity.this,"HEIGHT",etHeight.getText().toString().trim());
+        SharedPreferencesUtil.putValue(EditPersonalActivity.this,"NICKNAME",etNickname.getText().toString().trim());
+        finish_Activity(EditPersonalActivity.this);
+        ToastUtil.showShortToast("保存成功");
+    }
+
+    @Override
+    public void loadFail(String msg) {
+        ToastUtil.showShortToast(msg);
+    }
 }

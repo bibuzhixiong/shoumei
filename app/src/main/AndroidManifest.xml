@@ -88,7 +88,8 @@
 
         </activity>
         <!--编辑个人资料-->
-        <activity android:name="com.wanhan.shouyu.ui.me.activity.EditPersonalActivity">
+        <activity android:name="com.wanhan.shouyu.ui.me.activity.EditPersonalActivity"
+            android:windowSoftInputMode="stateHidden">
 
         </activity>
         <!-- 适配7.0调用系统控件 -->
