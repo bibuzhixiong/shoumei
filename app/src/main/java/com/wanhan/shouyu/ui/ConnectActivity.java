@@ -1,8 +1,13 @@
 package com.wanhan.shouyu.ui;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.kitnew.ble.QNApiManager;
 import com.kitnew.ble.QNBleApi;
@@ -53,6 +59,7 @@ public class ConnectActivity extends AppCompatActivity implements QNBleCallback 
 
         initViews();
         initData();
+        requestBluetoothPermission();
     }
 
     void initViews() {
@@ -158,5 +165,28 @@ public class ConnectActivity extends AppCompatActivity implements QNBleCallback 
     @Override
     public void onCompete(int errorCode) {
 
+    }
+    private static final int REQUEST_BLUETOOTH_PERMISSION=10;
+
+    private void requestBluetoothPermission(){
+        /* 判断系统版本 */
+        if (Build.VERSION.SDK_INT >= 23) {
+            //检测当前app是否拥有某个权限
+            int checkCallPhonePermission = ContextCompat.checkSelfPermission(this,
+                    Manifest.permission.ACCESS_COARSE_LOCATION);
+            //判断这个权限是否已经授权过
+            if(checkCallPhonePermission != PackageManager.PERMISSION_GRANTED){
+                //判断是否需要 向用户解释，为什么要申请该权限
+                if(ActivityCompat.shouldShowRequestPermissionRationale(this,
+                        Manifest.permission.ACCESS_COARSE_LOCATION))
+                    Toast.makeText(this,"Need bluetooth permission.",
+                            Toast.LENGTH_SHORT).show();
+                ActivityCompat.requestPermissions(this ,new String[]
+                        {Manifest.permission.ACCESS_COARSE_LOCATION},REQUEST_BLUETOOTH_PERMISSION);
+                return;
+            }else{
+            }
+        } else {
+        }
     }
 }

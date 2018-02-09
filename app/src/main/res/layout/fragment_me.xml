@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:background="@color/common_bg"
     >
 
@@ -142,6 +142,7 @@
 
 
            <LinearLayout
+               android:visibility="gone"
                android:id="@+id/ll_message"
                android:layout_width="match_parent"
                android:layout_height="44dp"
@@ -306,11 +307,14 @@
            </LinearLayout>
            <LinearLayout
                android:layout_width="match_parent"
-               android:layout_height="match_parent">
+               android:layout_height="0dp"
+               android:layout_marginBottom="@dimen/dp_10"
+               android:layout_weight="1">
+
                <android.support.v7.widget.RecyclerView
                    android:id="@+id/recyclerView"
                    android:layout_width="match_parent"
-                   android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+                   android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
            </LinearLayout>
        </LinearLayout>
    </ScrollView>

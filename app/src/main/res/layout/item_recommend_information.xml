@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:padding="2dp"
+    android:background="@color/white"
+    android:gravity="center">
+
         <ImageView
             android:id="@+id/img"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="120dp"
             android:src="@drawable/icon_my_friends"
+            android:scaleType="fitXY"
             />
+
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/dp_16"
-            android:text="sfswfssdf"/>
-    </LinearLayout>
+           android:layout_below="@+id/img"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:text="sfswfssdf"
+            android:layout_marginTop="4dp"
+            android:textSize="@dimen/dp_16" />
+
 
 
 </LinearLayout>

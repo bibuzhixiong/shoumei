@@ -151,7 +151,7 @@ public class PerfectInformationActivity extends BaseActivity<PerfectInformationP
                     return;
                 }
                 String birthday=tvBirthday.getText().toString().trim();
-                if(height.equals("请选择")){
+                if(birthday.equals("请选择")){
                     ToastUtil.showShortToast("请选择你的生日");
                     return;
                 }

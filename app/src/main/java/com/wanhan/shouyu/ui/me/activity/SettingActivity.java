@@ -1,6 +1,7 @@
 package com.wanhan.shouyu.ui.me.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -61,6 +62,12 @@ public class SettingActivity extends BaseActivity {
                 break;
             case R.id.ll_update_password:
                 startActivity(UpdatePasswordActivity.class);
+                break;
+            case R.id.ll_about_us:
+                Bundle bundle=new Bundle();
+                bundle.putString("title","关于我们");
+                bundle.putString("type","about_us");
+                startActivity(RecommendActivity.class,bundle);
                 break;
 
         }

@@ -2,7 +2,9 @@ package com.wanhan.shouyu.api;
 
 import com.google.gson.JsonObject;
 import com.wanhan.shouyu.bean.json.CodeBean;
+import com.wanhan.shouyu.bean.json.HistoryRecordBean;
 import com.wanhan.shouyu.bean.json.IdentifyCodeBean;
+import com.wanhan.shouyu.bean.json.RecommendInformationBean;
 import com.wanhan.shouyu.bean.json.RegisterBean;
 import com.wanhan.shouyu.bean.json.TermsBean;
 import com.wanhan.shouyu.bean.json.UserBean;
@@ -61,9 +63,14 @@ public interface ApiService {
     @Multipart
     @POST("servlet/UploadFileServlet")
     Observable<ResponseBody> changeUserHead(@Part MultipartBody.Part file);
-
         //推荐信息
     @GET("information!findInformation.action")
-    Observable<ResponseBody> recommendInformation(@QueryMap Map<String,String> map);
+    Observable<List<RecommendInformationBean>> recommendInformation(@QueryMap Map<String,String> map);
+
+    @GET("historicalRecord!addHistoricalRecord.action")
+    Observable<CodeBean> addHistoryRecord(@QueryMap Map<String,String> map);
+
+    @GET("historicalRecord!findHistoricalRecord.action")
+    Observable<List<HistoryRecordBean>> findHistoryRecord(@QueryMap Map<String,String> map);
 
 }

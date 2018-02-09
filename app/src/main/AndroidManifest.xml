@@ -20,8 +20,6 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
 
-
-
     <application
         android:name="com.wanhan.shouyu.App"
         android:allowBackup="true"
@@ -31,6 +29,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name="com.wanhan.shouyu.ui.MainActivity">
+
+        </activity>
+        <activity android:name="com.wanhan.shouyu.ui.TsstBlueActivity">
 
         </activity>
         <!--闪屏页-->
@@ -78,11 +79,17 @@
         <!--邀请好友-->
         <activity android:name="com.wanhan.shouyu.ui.me.activity.InviteFriendsActivity">
 
+
         </activity>
         <!--测量结果-->
         <activity android:name="com.wanhan.shouyu.ui.tool.activity.MeasureResultActivity">
 
         </activity>
+        <!--历史记录-->
+        <activity android:name="com.wanhan.shouyu.ui.tool.activity.HistoryActivity">
+
+        </activity>
+
         <!--健康报告-->
         <activity android:name="com.wanhan.shouyu.ui.tool.activity.HealthReportActivity">
 
@@ -91,6 +98,10 @@
         <activity android:name="com.wanhan.shouyu.ui.me.activity.EditPersonalActivity"
             android:windowSoftInputMode="stateHidden">
 
+        </activity>
+        <!--推荐-->
+        <activity android:name="com.wanhan.shouyu.ui.me.activity.RecommendActivity"
+            android:windowSoftInputMode="stateHidden">
         </activity>
         <!-- 适配7.0调用系统控件 -->
         <provider

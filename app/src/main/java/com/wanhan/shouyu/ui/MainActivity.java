@@ -80,9 +80,9 @@ public class MainActivity extends BaseActivity  {
 
     @Override
     protected void initView() {
-       /* qnBleApi = QNApiManager.getApi(this);
+       qnBleApi = QNApiManager.getApi(this);
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-M-d");
+       /*  SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-M-d");
         Date birthday = null;
         try {
             birthday = dateFormat.parse("1993-9-8");

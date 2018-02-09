@@ -31,7 +31,7 @@ public class IndicatorAdapter extends RecyclerView.Adapter<IndicatorAdapter.Indi
 
     @Override
     public IndicatorViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = inflater.inflate(R.layout.indicator_list_item, parent, false);
+        View v = inflater.inflate(R.layout.item_measrue_result, parent, false);
         return new IndicatorViewHolder(v);
     }
 

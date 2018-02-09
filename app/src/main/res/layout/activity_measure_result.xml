@@ -10,9 +10,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <ImageView
+            android:id="@+id/img_back"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:padding="8dp"
+            android:padding="10dp"
             android:src="@drawable/icon_white_back"/>
     </LinearLayout>
     <LinearLayout
@@ -32,25 +33,28 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
         <ImageView
+            android:id="@+id/img_head"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@drawable/head_man"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/tv_nickname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:textSize="@dimen/dp_16"
+                android:textSize="@dimen/dp_12"
                 android:text="昵称" />
             <TextView
+                android:id="@+id/tv_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:textSize="@dimen/dp_16"
+                android:textSize="@dimen/dp_12"
                 android:text="时间"/>
         </LinearLayout>
 
@@ -61,8 +65,15 @@
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:padding="10dp"
+            android:padding="14dp"
             android:src="@drawable/index_share"/>
     </LinearLayout>
+
 </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
 </LinearLayout>

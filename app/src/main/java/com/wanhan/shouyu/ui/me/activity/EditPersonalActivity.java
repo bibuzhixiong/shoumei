@@ -147,15 +147,17 @@ public class EditPersonalActivity extends BaseActivity<EditPersonalPresenter> im
         switch (v.getId()){
             case R.id.tv_save:
                String height= etHeight.getText().toString().trim();
-                if(!height.equals("")){
+                if(height.equals("")){
                     ToastUtil.showShortToast("请填写您的身高");
+                    return;
                 }
               String nickname=  etNickname.getText().toString().trim();
                String birthday= tvBirthday.getText().toString().trim();
                 Map<String,String> map=new HashMap<>();
                 map.put("height",height);
-                map.put("nickName",nickname);
+                map.put("niceName",nickname);
                 map.put("birthday",birthday);
+                map.put("userId",SharedPreferencesUtil.getValue(EditPersonalActivity.this,"USERID","")+"");
                 if(   radioGroupID.getCheckedRadioButtonId()==maleGroupID.getId()){
                     map.put("sex","1");
                 }else{
@@ -236,7 +238,6 @@ public class EditPersonalActivity extends BaseActivity<EditPersonalPresenter> im
         }
     }
 
-
     @Override
     public void uploadHeadSuccess(String info) {
         headPath= Api.API_BASE_URL+info;
@@ -246,9 +247,9 @@ public class EditPersonalActivity extends BaseActivity<EditPersonalPresenter> im
     public void updateUserSuccess(CodeBean info) {
         String manOrWoman="";
         if(   radioGroupID.getCheckedRadioButtonId()==maleGroupID.getId()){
-            manOrWoman="男";
+            manOrWoman="1";
         }else{
-            manOrWoman="女";
+            manOrWoman="2";
         }
 
         if(!headPath.equals("")){

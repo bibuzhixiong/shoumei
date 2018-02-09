@@ -4,8 +4,10 @@ import android.util.Log;
 
 import com.wanhan.shouyu.api.Api;
 import com.wanhan.shouyu.base.rx.RxSubscriber;
+import com.wanhan.shouyu.bean.json.RecommendInformationBean;
 import com.wanhan.shouyu.ui.me.contract.MeContract;
 
+import java.util.List;
 import java.util.Map;
 
 import okhttp3.ResponseBody;
@@ -17,16 +19,14 @@ import okhttp3.ResponseBody;
 public class MePresenter extends MeContract.Presenter {
     @Override
     public void recommentInformation(Map<String, String> map) {
-        addSubscrebe(Api.getInstance().recommendInformation(map),new RxSubscriber<ResponseBody>(mContext,true){
+        addSubscrebe(Api.getInstance().recommendInformation(map),new RxSubscriber<List<RecommendInformationBean>>(mContext,false){
             @Override
-            protected void onSuccess(ResponseBody info) {
-                try {
-                    Log.e("EEE",info.string());
-                    mView.uploadHeadSuccess(info.string());
+            protected void onSuccess(List<RecommendInformationBean> info) {
 
-                }catch (Exception e){
+                    Log.e("EEE",info.toString());
+                    mView.recommentInformationdSuccess(info);
 
-                }
+
 
             }
             @Override

@@ -3,7 +3,9 @@ package com.wanhan.shouyu.api;
 
 import com.google.gson.JsonObject;
 import com.wanhan.shouyu.bean.json.CodeBean;
+import com.wanhan.shouyu.bean.json.HistoryRecordBean;
 import com.wanhan.shouyu.bean.json.IdentifyCodeBean;
+import com.wanhan.shouyu.bean.json.RecommendInformationBean;
 import com.wanhan.shouyu.bean.json.RegisterBean;
 import com.wanhan.shouyu.bean.json.TermsBean;
 import com.wanhan.shouyu.bean.json.UserBean;
@@ -98,8 +100,17 @@ public class Api {
     public Observable<ResponseBody> changeUserHead(MultipartBody.Part body){
         return service.changeUserHead(body);
     }
+
     //推荐信息
-    public Observable<ResponseBody> recommendInformation(Map<String,String> map){
+    public Observable<List<RecommendInformationBean>> recommendInformation(Map<String,String> map){
         return service.recommendInformation(map);}
+
+        //添加历史记录
+        public Observable<CodeBean> addHistoryRecord(Map<String,String> map){
+            return service.addHistoryRecord(map);}
+    //添加历史记录
+    public Observable<List<HistoryRecordBean>> findHistoryRecord(Map<String,String> map){
+        return service.findHistoryRecord(map);}
+
 
 }
