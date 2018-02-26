@@ -52,7 +52,10 @@ public class RegisterPresenter extends RegisterContract.Presenter{
 
                 if(requestStatusBean.getCode().equals("0")){
                     mView.getCodeSuccess(requestStatusBean);
-                }else{
+                }else if(requestStatusBean.getCode().equals("-1")){
+                    mView.loadFail("该手机号已经存在");
+                }
+                else{
                     mView.loadFail("验证码发送已经超过5次");
                 }
 

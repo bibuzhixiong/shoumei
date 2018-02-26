@@ -7,6 +7,7 @@ import android.util.Log;
 import com.kitnew.ble.QNApiManager;
 import com.kitnew.ble.QNResultCallback;
 import com.kitnew.ble.utils.QNLog;
+import com.wanhan.shouyu.utils.WXShareManager;
 
 /**
  * Created by lan on 2017/6/22.
@@ -27,7 +28,7 @@ public class App extends Application {
                 Log.i("hdr", "执行结果校验:" + errorCode);
             }
         });
-
+        WXShareManager.get().init(this);
     }
     public static Context getAppContext() {
         return context;

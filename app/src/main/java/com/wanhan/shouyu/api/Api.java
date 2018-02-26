@@ -33,9 +33,10 @@ import rx.Observable;
 /**
  * Created by lan on 2017/9/22.
  */
-
 public class Api {
-    public final static String API_BASE_URL = "http://120.77.44.166:80/ShuaiMei/";
+
+//    public final static String API_BASE_URL = "http://lsy.tunnel.echomod.cn/ShuaiMei/";
+    public final static String API_BASE_URL = "http://q3.wanhanqianshun.com";
     public static Api instance;
     private ApiService service;
     //添加请求头
@@ -111,6 +112,19 @@ public class Api {
     //添加历史记录
     public Observable<List<HistoryRecordBean>> findHistoryRecord(Map<String,String> map){
         return service.findHistoryRecord(map);}
+    //绑定微信
+    public Observable<UserBean> bangWeixin(Map<String,String> map){
+        return service.bangWeixin(map);}
+    //绑定微信
+    public Observable<CodeBean> unbundingWechat(Map<String,String> map){
+        return service.unbundingWechat(map);}
+
+    //绑定手机
+    public Observable<CodeBean> bangPhone(Map<String,String> map){
+        return service.bangPhone(map);}
+    //忘记密码
+    public Observable<CodeBean> forgetPassword(Map<String,String> map){
+        return service.forgetPassword(map);}
 
 
 }

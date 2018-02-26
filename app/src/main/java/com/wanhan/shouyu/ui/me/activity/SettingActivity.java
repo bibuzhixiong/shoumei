@@ -69,6 +69,9 @@ public class SettingActivity extends BaseActivity {
                 bundle.putString("type","about_us");
                 startActivity(RecommendActivity.class,bundle);
                 break;
+            case R.id.ll_binding:
+                startActivity(BundingWechatActivity.class);
+                break;
 
         }
     }

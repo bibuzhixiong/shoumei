@@ -100,7 +100,16 @@ public class MeFragment extends BaseFragment<MePresenter> implements MeContract.
         tvId.setText("瘦鱼ID："+id);
         String headpath= SharedPreferencesUtil.getValue(getActivity(),"HEADPATH","")+"";
         if(!headpath.equals("")){
-            Glide.with(getActivity()).load(headpath).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(imgHead);
+         /*   RequestOptions options = new RequestOptions();
+            options.centerCrop()
+                    .placeholder(R.drawable.head_man)
+                    .error(R.drawable.head_man)
+                    .fallback(R.drawable.head_man)
+                    .bitmapTransform(new CircleCrop());*/
+
+//            Glide.with(getActivity()).load(headpath).placeholder();
+            Glide.with(getActivity()).load(headpath).apply(RequestOptions.bitmapTransform(new CircleCrop()).placeholder(R.drawable.head_man) .error(R.drawable.head_man)
+                    .fallback(R.drawable.head_man)).into(imgHead);
         }
         event();
         data1.add(new RecommendInformationBean());
@@ -142,8 +151,10 @@ public class MeFragment extends BaseFragment<MePresenter> implements MeContract.
                     public void call(Object event) {
                       if(event instanceof UserHeadEvent){
                             UserHeadEvent userHeadEvent= (UserHeadEvent) event;
-                          Log.e("TTT",userHeadEvent.getAvatar());
-                          Glide.with(getActivity()).load(userHeadEvent.getAvatar()).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(imgHead);
+//                          Log.e("TTT",userHeadEvent.getAvatar());
+
+                          Glide.with(getActivity()).load(userHeadEvent.getAvatar()).apply(RequestOptions.bitmapTransform(new CircleCrop()).placeholder(R.drawable.head_man) .error(R.drawable.head_man)
+                                  .fallback(R.drawable.head_man)).into(imgHead);
                         }else if(event instanceof NickNameEvent){
                           NickNameEvent userHeadEvent= (NickNameEvent) event;
                             tvNickname.setText(userHeadEvent.getNickname());
@@ -199,4 +210,6 @@ public class MeFragment extends BaseFragment<MePresenter> implements MeContract.
     public void loadFail(String msg) {
 
     }
+
+
 }

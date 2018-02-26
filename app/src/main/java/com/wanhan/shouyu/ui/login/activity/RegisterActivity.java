@@ -89,6 +89,7 @@ public class RegisterActivity extends BaseActivity<RegisterPresenter> implements
                 }
                 Map map=new HashMap();
                 map.put("phone",phone);
+                map.put("sendType","1");
                 mPresenter.getCode(MapUtil.getMap(map));
                 break;
             case R.id.bt_register:
@@ -195,4 +196,6 @@ public class RegisterActivity extends BaseActivity<RegisterPresenter> implements
   }
 
  }
+
+
 }

@@ -38,4 +38,20 @@ public class LoginPresenter extends LoginContract.Presenter{
             }
         });
     }
+
+    @Override
+    public void weChatLogin(Map<String, String> map) {
+        addSubscrebe(Api.getInstance().bangWeixin(map), new RxSubscriber<UserBean>(mContext,true) {
+            @Override
+            protected void onSuccess(UserBean requestStatusBean) {
+
+             mView.weChatLoginSuccess(requestStatusBean);
+
+            }
+            @Override
+            protected void onFailure(String message) {
+                mView.loadFail(message);
+            }
+        });
+    }
 }

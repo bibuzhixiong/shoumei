@@ -15,7 +15,7 @@ public interface LoginContract {
     interface View extends BaseView {
         void loginSuccess(UserBean info);
 
-        //        void weChatLoginSuccess(RequestStatusBean bean);
+                void weChatLoginSuccess(UserBean bean);
 //
 //
 //        void registerSuccess(RequestStatusBean info);
@@ -44,7 +44,7 @@ public interface LoginContract {
         //        public abstract void findPwd(Map<String, String> map);
 //        public abstract void getCode(Map<String, String> map);
 //        public abstract void loadWeChatData(String url);
-//        public abstract void weChatLogin(Map<String,String> map);
+        public abstract void weChatLogin(Map<String,String> map);
 //        public abstract void bindWeChat(Map<String,String> map);
 //        public abstract void loadWeChatInfo(String url);
 

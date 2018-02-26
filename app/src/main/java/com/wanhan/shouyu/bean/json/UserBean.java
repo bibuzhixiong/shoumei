@@ -18,6 +18,7 @@ public class UserBean extends CodeBean{
     private String coachPhone;
     private String registerTime;
     private String phone;
+    private String openId;
 
     public String getLoginInfold() {
         return loginInfold;
@@ -123,6 +124,14 @@ public class UserBean extends CodeBean{
         this.phone = phone;
     }
 
+    public String getOpenId() {
+        return openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
+
     @Override
     public String toString() {
         return "UserBean{" +
@@ -139,6 +148,7 @@ public class UserBean extends CodeBean{
                 ", coachPhone='" + coachPhone + '\'' +
                 ", registerTime='" + registerTime + '\'' +
                 ", phone='" + phone + '\'' +
+                ", openId='" + openId + '\'' +
                 '}';
     }
 }

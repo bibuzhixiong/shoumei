@@ -66,11 +66,25 @@ public interface ApiService {
         //推荐信息
     @GET("information!findInformation.action")
     Observable<List<RecommendInformationBean>> recommendInformation(@QueryMap Map<String,String> map);
-
+    //添加历史记录
     @GET("historicalRecord!addHistoricalRecord.action")
     Observable<CodeBean> addHistoryRecord(@QueryMap Map<String,String> map);
-
+    //查找历史记录
     @GET("historicalRecord!findHistoricalRecord.action")
     Observable<List<HistoryRecordBean>> findHistoryRecord(@QueryMap Map<String,String> map);
+
+//    微信登录
+    @GET("user!doWeiXinLogin.action")
+    Observable<UserBean> bangWeixin(@QueryMap Map<String,String> map);
+//    绑定手机
+    @GET("user!updateLoginInfo.action")
+    Observable<CodeBean> bangPhone(@QueryMap Map<String,String> map);
+
+//    忘记密码
+    @GET("user!findUserPwd.action")
+    Observable<CodeBean> forgetPassword(@QueryMap Map<String,String> map);
+    //    忘记密码
+    @GET("user!removeWeiXinBang.action")
+    Observable<CodeBean> unbundingWechat(@QueryMap Map<String,String> map);
 
 }

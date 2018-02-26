@@ -20,6 +20,8 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
 
+
+
     <application
         android:name="com.wanhan.shouyu.App"
         android:allowBackup="true"
@@ -44,12 +46,15 @@
         </activity>
         <!--登录-->
         <activity android:name="com.wanhan.shouyu.ui.login.activity.LoginActivity">     </activity>
+       <!--绑定手机-->
+        <activity android:name="com.wanhan.shouyu.ui.login.activity.BangPhoneActivity">     </activity>
         <!--注册-->
         <activity android:name="com.wanhan.shouyu.ui.login.activity.RegisterActivity">
         </activity>
         <!--瘦鱼服务条款-->
-        <activity android:name="com.wanhan.shouyu.ui.login.activity.TermsActivity">
-        </activity>
+        <activity android:name="com.wanhan.shouyu.ui.login.activity.TermsActivity"> </activity>
+            <!--忘记密码-->
+            <activity android:name="com.wanhan.shouyu.ui.login.activity.ForgetPasswordActivity">     </activity>
         <!--引导页-->
         <activity android:name="com.wanhan.shouyu.ui.login.activity.WelcomeActivity">
 
@@ -65,7 +70,9 @@
 
         </activity>
         <!--设置-->
-        <activity android:name="com.wanhan.shouyu.ui.me.activity.SettingActivity">
+        <activity android:name="com.wanhan.shouyu.ui.me.activity.SettingActivity">  </activity>
+        <!--绑定微信-->
+        <activity android:name="com.wanhan.shouyu.ui.me.activity.BundingWechatActivity">
 
         </activity>
         <!--意见反馈-->
@@ -103,6 +110,13 @@
         <activity android:name="com.wanhan.shouyu.ui.me.activity.RecommendActivity"
             android:windowSoftInputMode="stateHidden">
         </activity>
+
+        <!-- 微信登录 -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent" />
         <!-- 适配7.0调用系统控件 -->
         <provider
             android:name="android.support.v4.content.FileProvider"
