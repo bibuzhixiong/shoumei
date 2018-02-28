@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.wanhan.shouyu.base.BaseToolbar
+        android:id="@+id/toolbar"
+        style="@style/basetoolbarStyle"
+        android:background="@color/white"
+        app:leftButtonIcon="@drawable/ic_black_back"
+        app:titleTextColor="@color/black"
+        app:title="二维码邀请" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/img_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+    <Button
+        android:id="@+id/bt_share"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="分享二维码给好友"
+        android:textSize="16sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/shape_redbtn_selector"
+        android:textColor="@color/white"/>
+
+</LinearLayout>

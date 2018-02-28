@@ -11,6 +11,8 @@
             <option value="$PROJECT_DIR$/ImagePicker" />
             <option value="$PROJECT_DIR$/StatusBarlibrary" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/library" />
+            <option value="$PROJECT_DIR$/libzxing" />
             <option value="$PROJECT_DIR$/pickerview" />
           </set>
         </option>

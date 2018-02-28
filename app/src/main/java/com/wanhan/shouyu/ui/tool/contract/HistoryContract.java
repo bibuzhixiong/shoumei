@@ -15,6 +15,7 @@ import java.util.Map;
 public interface HistoryContract {
     interface View extends BaseView {
         void findHistoryRecordSuccess(List<HistoryRecordBean> info);
+        void deleteHistoryRecordSuccess(CodeBean info);
 
         void loadFail(String msg);
 
@@ -24,6 +25,7 @@ public interface HistoryContract {
     abstract class Presenter extends BasePresenter<HistoryContract.View> {
 
         public abstract void findHistoryRecord(Map<String, String> map);
+        public abstract void deleteHistoryRecord(Map<String, String> map);
 
 
     }

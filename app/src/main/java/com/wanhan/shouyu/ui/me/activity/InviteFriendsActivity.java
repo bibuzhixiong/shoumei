@@ -58,9 +58,9 @@ public class InviteFriendsActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        api = WXAPIFactory.createWXAPI(InviteFriendsActivity.this, AppConstant.WEIXIN_APP_ID, false);
-        // 将该app注册到微信
-        api.registerApp(AppConstant.WEIXIN_APP_ID);
+//        api = WXAPIFactory.createWXAPI(InviteFriendsActivity.this, AppConstant.WEIXIN_APP_ID, false);
+//        // 将该app注册到微信
+//        api.registerApp(AppConstant.WEIXIN_APP_ID);
     }
     @OnClick({R.id.ll_link,R.id.ll_code})
     @Override
@@ -75,11 +75,10 @@ public class InviteFriendsActivity extends BaseActivity {
         };
         boolean result = false;
 
-
         switch (v.getId()){
             case R.id.ll_link:
 
-                Drawable d = ActivityCompat.getDrawable(this, R.mipmap.ic_launcher);
+//                Drawable d = ActivityCompat.getDrawable(this, R.mipmap.ic_launcher);
                 String name=SharedPreferencesUtil.getValue(InviteFriendsActivity.this,"NICKNAME","")+"";
                 result=mgr.shareWebPage(AppConstant.BASE_URL+"/registration?userId="+ SharedPreferencesUtil.getValue(InviteFriendsActivity.this,"USERID","")+"","瘦鱼帮你健康减脂",name+"邀请您健康减脂，快来开启健康减脂之旅吧！", WXShareManager.ShareType.FRIENDS, listener);
 //                result = mgr.shareImage(((BitmapDrawable)d).getBitmap(), "", "分享一张图片", WXShareManager.ShareType.FRIENDS, listener);
@@ -87,6 +86,7 @@ public class InviteFriendsActivity extends BaseActivity {
 
                 break;
             case R.id.ll_code:
+                startActivity(InviteFriendsByCodeActivity.class);
                 break;
         }
     }

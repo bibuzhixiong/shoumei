@@ -4,6 +4,7 @@
     android:layout_height="60dp"
     android:gravity="center_vertical"
     android:paddingLeft="@dimen/dp_16"
+    android:background="@drawable/touch_bg"
     android:id="@+id/ll"
  >
     <TextView

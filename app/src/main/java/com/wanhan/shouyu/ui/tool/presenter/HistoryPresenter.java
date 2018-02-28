@@ -27,4 +27,18 @@ public class HistoryPresenter extends HistoryContract.Presenter {
             }
         });
     }
+
+    @Override
+    public void deleteHistoryRecord(Map<String, String> map) {
+        addSubscrebe(Api.getInstance().deleteHistoryRecord(map),new RxSubscriber<CodeBean>(mContext,false){
+            @Override
+            protected void onSuccess(CodeBean info) {
+                mView.deleteHistoryRecordSuccess(info);
+            }
+            @Override
+            protected void onFailure(String message) {
+                mView.loadFail(message);
+            }
+        });
+    }
 }

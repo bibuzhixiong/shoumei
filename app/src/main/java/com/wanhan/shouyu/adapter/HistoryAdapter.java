@@ -19,6 +19,7 @@ import java.util.List;
  */
 
 public class HistoryAdapter extends BaseQuickAdapter<HistoryRecordBean ,BaseViewHolder> {
+    private boolean isDelete=false;
     public HistoryAdapter(@Nullable List<HistoryRecordBean> data) {
         super(R.layout.item_history,data);
     }
@@ -29,6 +30,24 @@ public class HistoryAdapter extends BaseQuickAdapter<HistoryRecordBean ,BaseView
         helper.setText(R.id.tv_weight,item.getWeight());
         helper.setText(R.id.tv_tizhilv,item.getBodyFatRate());
         helper.setText(R.id.tv_fat,item.getFat());
+        helper.addOnClickListener(R.id.img_delete);
+        ImageView imageView=helper.getView(R.id.img_delete);
+        if(isDelete){
+            imageView.setImageResource(R.drawable.icon_shangcheng_close);
+        }else{
+            imageView.setImageResource(R.drawable.icon_right_gray_arrow);
+
+        }
 
     }
+    public void change(){
+        if(isDelete){
+            isDelete=false;
+        }else{
+            isDelete=true;
+        }
+    }
+
+
+
 }

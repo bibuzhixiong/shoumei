@@ -72,7 +72,9 @@ public interface ApiService {
     //查找历史记录
     @GET("historicalRecord!findHistoricalRecord.action")
     Observable<List<HistoryRecordBean>> findHistoryRecord(@QueryMap Map<String,String> map);
-
+    //删除历史记录
+    @GET("historicalRecord!removeHistoricalRecord.action")
+    Observable<CodeBean> deleteHistoryRecord(@QueryMap Map<String,String> map);
 //    微信登录
     @GET("user!doWeiXinLogin.action")
     Observable<UserBean> bangWeixin(@QueryMap Map<String,String> map);

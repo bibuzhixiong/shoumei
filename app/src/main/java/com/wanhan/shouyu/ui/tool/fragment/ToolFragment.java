@@ -131,11 +131,8 @@ public class ToolFragment extends BaseFragment<ToolPresenter> implements QNBleCa
               tvWeight.setText(Float.parseFloat(str[0]) * 2 + "");
               tvTizhilv.setText(Float.parseFloat(str[2])  + "");
           }catch (Exception e){
-
           }
-
       }
-
     }
 
     @OnClick({R.id.rl1, R.id.tv_shangcheng, R.id.ll_health_test,R.id.ll_history})
@@ -273,7 +270,6 @@ public class ToolFragment extends BaseFragment<ToolPresenter> implements QNBleCa
                     public void hasPermission() {
                         connect();
                     }
-
                     @Override
                     public void noPermission() {
                     }
@@ -548,7 +544,6 @@ public class ToolFragment extends BaseFragment<ToolPresenter> implements QNBleCa
         if(bleApi!=null){
             bleApi.disconnectDevice(device.getMac());
         }
-
 
         tvWeight.setText(qnData.getAll().get(0).value*2+"");
         tvTizhilv.setText(qnData.getAll().get(2).value+"");

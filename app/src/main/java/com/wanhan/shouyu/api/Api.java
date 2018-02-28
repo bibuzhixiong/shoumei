@@ -109,7 +109,10 @@ public class Api {
         //添加历史记录
         public Observable<CodeBean> addHistoryRecord(Map<String,String> map){
             return service.addHistoryRecord(map);}
-    //添加历史记录
+    //删除历史记录
+    public Observable<CodeBean> deleteHistoryRecord(Map<String,String> map){
+        return service.deleteHistoryRecord(map);}
+    //查找历史记录
     public Observable<List<HistoryRecordBean>> findHistoryRecord(Map<String,String> map){
         return service.findHistoryRecord(map);}
     //绑定微信

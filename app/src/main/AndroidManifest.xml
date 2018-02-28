@@ -85,8 +85,9 @@
         </activity>
         <!--邀请好友-->
         <activity android:name="com.wanhan.shouyu.ui.me.activity.InviteFriendsActivity">
-
-
+        </activity>
+        <!--发送二维码邀请好友-->
+        <activity android:name="com.wanhan.shouyu.ui.me.activity.InviteFriendsByCodeActivity">
         </activity>
         <!--测量结果-->
         <activity android:name="com.wanhan.shouyu.ui.tool.activity.MeasureResultActivity">

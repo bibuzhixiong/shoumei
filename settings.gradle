@@ -1,1 +1,1 @@
-include ':app', ':StatusBarlibrary', ':pickerview', ':ImagePicker'
+include ':app', ':StatusBarlibrary', ':pickerview', ':ImagePicker', ':library', ':libzxing'
